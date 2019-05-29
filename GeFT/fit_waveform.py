@@ -13,12 +13,16 @@ from waffle.models import OvershootFilterModel,OscillationFilterModel, TrappingM
 from siggen import PPC
 
 chan_dict = {
+580: "P42661C",
 600: "B8482",
 626: "P42574A",
-640:"P42665A",
-648:"P42664A",
+630: "P42661B",
 672: "P42661A",
-692: "B8474"
+680: "B8477",
+690: "P42662A",
+692: "B8474",
+694: "B8465",
+1106: "B8594",
 }
 
 def main(wf, doPlot=False):
@@ -41,8 +45,7 @@ def main(wf, doPlot=False):
     detector = PPC( conf_file, wf_padding=100)
 
     vm = VelocityModel(include_beta=False)
-    #hp1 = HiPassFilterModel(detector)
-    #hp2 = HiPassFilterModel(detector)
+    #hp = HiPassFilterModel(detector)
     fs = FirstStageFilterModel(detector)
     al = AntialiasingFilterModel(detector)
     oshoot = OvershootFilterModel(detector)
@@ -50,21 +53,13 @@ def main(wf, doPlot=False):
     im = ImpurityModelEnds(detector)
     #tm = TrappingModel()
 
-    #lp = LowPassFilterModel(detector)
-    #hp = HiPassFilterModel(detector)
+
 
     det_params = [ 9.76373631e-01,8.35875049e-03,-5.09732644e+00,-6.00749043e+00,
                    4.74275220e+06,3.86911389e+06,6.22014783e+06,5.22077471e+06,
                     -3.63516477e+00,-4.48184667e-01]
-    '''
-    #OLD
-    vm.apply_to_detector([8439025,5307015,9677126,5309391], detector)
-    fs.apply_to_detector([-7.062660481537297308e-01, 9.778840228405032420e-01, -7.851819989636383390e+00], detector)
-    al.apply_to_detector([0.5344254, 0.135507736], detector)
-    oshoot.apply_to_detector([-3.8111099842, 0.140626600], detector)
-    osc.apply_to_detector([-1.6800848, 3.00040593, -1.245777055, 5.0073780147], detector)
-    im.apply_to_detector([-0.015571734108306538, -5.7326715464], detector)
 
+    '''
     #672
     vm.apply_to_detector([6.330448119432486594e+06, 7.070545190569272265e+06, 6.330662440609236248e+06, 7.320939440024248324e+06], detector)
     fs.apply_to_detector([-1.50887, 9.790592e-01, -2.10503], detector)
@@ -81,6 +76,7 @@ def main(wf, doPlot=False):
     oshoot.apply_to_detector([-5.2901815, 1.80], detector)
     osc.apply_to_detector([-2.181, 7, -2.2, 5.], detector)
     im.apply_to_detector([-.12, -1.54175], detector)
+    
     data = np.load(wf_file, encoding="latin1")
     wfs = data['wfs']
 

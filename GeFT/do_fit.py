@@ -26,13 +26,13 @@ def main(chan, doPlot=False):
     chan = int(chan)
     directory = "8wf_zero_{}".format(chan)
 
-    wf_file = "training_data/chan{}_8wfs.npz".format(chan)
+    wf_file = "../Data/Detectorchan{}_8wfs.npz".format(chan)
     conf_name = "{}.conf".format( chan_dict[chan] )
 
     wf_idxs = np.arange(0,8)
 
 
-    datadir= os.environ['DATADIR']
+    datadir= os.environ['DATADIR'] + '/Raw'
     conf_file = datadir +"/siggen/config_files/" + conf_name
     #rc_ms = 72
     rc_us = 70
