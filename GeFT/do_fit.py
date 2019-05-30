@@ -9,12 +9,16 @@ import dnest4
 from waffle.management import LocalFitManager, FitConfiguration
 
 chan_dict = {
+580: "P42661C",
 600: "B8482",
-626: "P42574A", #All there
-640:"P42665A",
-648:"P42664A",
-672: "P42661A", #Mostly good
-692: "B8474" #Have this too
+626: "P42574A",
+630: "P42661B",
+672: "P42661A",
+680: "B8477",
+690: "P42662A",
+692: "B8474",
+694: "B8465",
+1106: "B8594",
 }
 
 def main(chan, doPlot=False):
@@ -24,9 +28,9 @@ def main(chan, doPlot=False):
     # conf_name = "P42664A.conf"
 
     chan = int(chan)
-    directory = "8wf_zero_{}".format(chan)
+    directory = "../../Data/Detector/8wf_zero_{}".format(chan)
 
-    wf_file = "training_data/chan{}_8wfs.npz".format(chan)
+    wf_file = "../../Data/Detector/chan{}_8wfs_DS1-1.npz".format(chan)
     conf_name = "{}.conf".format( chan_dict[chan] )
 
     wf_idxs = np.arange(0,8)
@@ -85,7 +89,7 @@ def main(chan, doPlot=False):
     else:
         os.makedirs(directory)
 
-    fm = LocalFitManager(conf, num_threads=2)
+    fm = LocalFitManager(conf, num_threads=4)
 
     conf.save_config()
     fm.fit(numLevels=1000, directory = directory,new_level_interval=5000, numParticles=3)
