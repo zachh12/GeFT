@@ -30,17 +30,14 @@ def main(wf, doPlot=False):
     align_point = 0.95
     wf_idx = int(wf)
 
-    chan = 672
+    chan = 626
     #chan = 692
-    directory = "chan{}_wfs".format(chan)
-
-    #wf_file = "training_data/chan{}_2614wfs.npz".format(chan)
-    wf_file = "training_data/datarun11510-11549chan672_250wfs.npz"
-    conf_name = "{}.conf".format( chan_dict[chan] )
-
     datadir= os.environ['DATADIR']
-    conf_file = datadir +"/siggen/config_files/" + conf_name
+    directory = datadir + "Waveform/chan{}_wfs".format(chan)
 
+    wf_file = datadir + "Detector/chan{}_8wfs_DS1-1.npz".format(chan)
+    conf_name = "{}.conf".format( chan_dict[chan] )
+    conf_file = datadir +"/siggen/config_files/" + conf_name
 
     detector = PPC( conf_file, wf_padding=100)
 
