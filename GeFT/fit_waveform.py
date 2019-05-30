@@ -30,12 +30,11 @@ def main(wf, doPlot=False):
     align_point = 0.95
     wf_idx = int(wf)
 
-    chan = 626
-    #chan = 692
+    chan = 672
     datadir= os.environ['DATADIR']
-    directory = datadir + "Waveform/chan{}_wfs".format(chan)
+    directory = "../../Data/Waveform/chan{}_wfs".format(chan)
 
-    wf_file = datadir + "Detector/chan{}_8wfs_DS1-1.npz".format(chan)
+    wf_file = datadir + "/Detector/chan{}_8wfs_DS1-1.npz".format(chan)
     conf_name = "{}.conf".format( chan_dict[chan] )
     conf_file = datadir +"/siggen/config_files/" + conf_name
 
@@ -50,13 +49,6 @@ def main(wf, doPlot=False):
     im = ImpurityModelEnds(detector)
     #tm = TrappingModel()
 
-
-
-    det_params = [ 9.76373631e-01,8.35875049e-03,-5.09732644e+00,-6.00749043e+00,
-                   4.74275220e+06,3.86911389e+06,6.22014783e+06,5.22077471e+06,
-                    -3.63516477e+00,-4.48184667e-01]
-
-    '''
     #672
     vm.apply_to_detector([6.330448119432486594e+06, 7.070545190569272265e+06, 6.330662440609236248e+06, 7.320939440024248324e+06], detector)
     fs.apply_to_detector([-1.50887, 9.790592e-01, -2.10503], detector)
@@ -64,16 +56,7 @@ def main(wf, doPlot=False):
     oshoot.apply_to_detector([-5.301815, 1.8299623], detector)
     osc.apply_to_detector([-2.185584, 6.970590, -2.2064522, 5.77401], detector)
     im.apply_to_detector([-2.739048e-01, -1.54175], detector)
-    '''
 
-    #try
-    vm.apply_to_detector([6.329044e+06, 7.070545190569272265e+06, 6.3290662440e+06, 7.320139440024248324e+06], detector)
-    fs.apply_to_detector([-1.51087, 9.790192e-01, -2.10403], detector)
-    al.apply_to_detector([7.99097e-01, .0091], detector)
-    oshoot.apply_to_detector([-5.2901815, 1.80], detector)
-    osc.apply_to_detector([-2.181, 7, -2.2, 5.], detector)
-    im.apply_to_detector([-.12, -1.54175], detector)
-    
     data = np.load(wf_file, encoding="latin1")
     wfs = data['wfs']
 
