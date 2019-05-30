@@ -7,4 +7,4 @@
 source .bash_rc
 cd Software/GeFT/Geft
 
-python fit_waveform.py
+python fit_waveform.py 0
