@@ -18,6 +18,7 @@ from waffle.postprocessing import TrainingResultSummary
 
 
 def main(dir_name, num_samples=2000, sample_dec=1 ):
+    dir_name = dir_name
     res = TrainingResultSummary(dir_name, int(num_samples), int(sample_dec))
 
     num_wf_params = res.num_wf_params

@@ -1,13 +1,11 @@
 #!/bin/sh
-#PBS -N Testing
-#PBS -l nodes=1:ppn=2
-#PBS -l walltime=00:10:00
+#PBS -N Fit_Detector
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=36:00:00
 #PBS -V
-#PBS -o output.log
-#PBS -e error.log
+#PBS -o output692.log
+#PBS -e error692.log
 #source .bash_rc
 
-echo $PWD
 cd Software/GeFT/GeFT
-
-python fit_det.py 626
+python do_fit.py 692

@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N Testing
 #PBS -l nodes=1:ppn=1
-#PBS -l walltime=00:03:00
+#PBS -l walltime=00:10:00
 #PBS -V
 #PBS -o output.log
 #PBS -e error.log
@@ -10,4 +10,4 @@
 echo $PWD
 cd Software/GeFT/GeFT
 
-python fit_waveform.py 0
+python fit_waveform.py 1
