@@ -54,13 +54,13 @@ def main(dir_name, wf_idx, num_samples=10 ):
     osc = OscillationFilterModel(detector)
     im = ImpurityModelEnds(detector)
 
-    vm.apply_to_detector([6.329044e+06, 7.070545190569272265e+06, 6.3290662440e+06, 7.320139440024248324e+06], detector)
-    fs.apply_to_detector([-1.51087, 9.790192e-01, -2.10403], detector)
-    al.apply_to_detector([7.99097e-01, .0091], detector)
-    oshoot.apply_to_detector([-5.2901815, 1.80], detector)
-    osc.apply_to_detector([-2.181, 7, -2.2, 5.], detector)
-    im.apply_to_detector([-.12, -1.54175], detector)
-
+    #626
+    vm.apply_to_detector([5141291.6, 4946175, 6671188.9, 6082661.9], detector)
+    fs.apply_to_detector([-1.639521, 0.84747441, -4.1866621], detector)
+    al.apply_to_detector([0.7824582, 0.15356027], detector)
+    oshoot.apply_to_detector([-4.103934, 0.2504037], detector)
+    osc.apply_to_detector([-1.659531, 3.089933, -1.18498, 4.97392], detector)
+    im.apply_to_detector([-0.19725, -2.03151], detector)
     wfm = WaveformModel(wf, align_percent=align_point, detector=detector, align_idx=100)
     plotter = WaveformFitPlotter(wf_directory, int(num_samples), wfm)
     plotter.plot_waveform()
