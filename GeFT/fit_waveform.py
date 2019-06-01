@@ -30,7 +30,7 @@ def main(wf, doPlot=False):
     align_point = 0.95
     wf_idx = int(wf)
 
-    chan = 626
+    chan = 692
     datadir= os.environ['DATADIR']
     directory = "../../Data/Waveform/chan{}_wfs".format(chan)
 
@@ -50,8 +50,20 @@ def main(wf, doPlot=False):
     im = ImpurityModelEnds(detector)
     tm = TrappingModel()
 
+    #692
+    vm.apply_to_detector([4673558.84, 1776822.2, 8877288.2, 3423877.6], detector)
+    hp.apply_to_detector([72], detector)
+    hp2.apply_to_detector([34337.7734], detector)
+    fs.apply_to_detector([-1.551911234, 0.9719579, -4.99433260], detector)
+    al.apply_to_detector([0.7823669278, 0.06673781], detector)
+    oshoot.apply_to_detector([-5.40331742, 1.80314368], detector)
+    osc.apply_to_detector([-1.9162354, 6.0421995, -1.974504, 4.948722], detector)
+    im.apply_to_detector([-0.147214076, -1.5064867 ], detector)
+    tm.apply_to_detector(958.5, detector)    
+    '''
+    #636
     vm.apply_to_detector([5068054.82, 4988240.69, 6538435.34, 5925515.5], detector)
-    hp.apply_to_detector([72.9], detector)
+    hp.apply_to_detector([72], detector)
     hp2.apply_to_detector([34336.51273333012], detector)
     fs.apply_to_detector([-1.6726791950686515, 0.8668817247858145, -4.752247247699966], detector)
     al.apply_to_detector([0.8081722376640458, 0.11022819946140337], detector)
@@ -59,7 +71,7 @@ def main(wf, doPlot=False):
     osc.apply_to_detector([-1.7145995461740187, 3.002188106849415, -1.3480151900941126, 4.9442560336492445], detector)
     im.apply_to_detector([-0.19525537473916815, -1.906570916850837 ], detector)
     tm.apply_to_detector(935, detector)
-
+    '''
     
     data = np.load(wf_file, encoding="latin1")
     wfs = data['wfs']
