@@ -51,24 +51,15 @@ def main(wf, doPlot=False):
     tm = TrappingModel()
 
     vm.apply_to_detector([5068054.82, 4988240.69, 6538435.34, 5925515.5], detector)
-    hp.apply_to_detector([34336.51273333012], detector)
-    hp2.apply_to_detector([72.9], detector)
+    hp.apply_to_detector([72.9], detector)
+    hp2.apply_to_detector([34336.51273333012], detector)
     fs.apply_to_detector([-1.6726791950686515, 0.8668817247858145, -4.752247247699966], detector)
     al.apply_to_detector([0.8081722376640458, 0.11022819946140337], detector)
     oshoot.apply_to_detector([-4.781231221813979, 0.4360771327659954], detector)
     osc.apply_to_detector([-1.7145995461740187, 3.002188106849415, -1.3480151900941126, 4.9442560336492445], detector)
     im.apply_to_detector([-0.19525537473916815, -1.906570916850837 ], detector)
     tm.apply_to_detector(935, detector)
-   
-    #626
-    #vm.apply_to_detector([5060949, 4998461, 6540686, 5911641], detector)
-    #hp.apply_to_detector([35040.50], detector)
-    #fs.apply_to_detector([-1.6466, 0.84437, -4.7535], detector)
-    #al.apply_to_detector([0.797979, 0.1095046], detector)
-    #oshoot.apply_to_detector([-4.83454, 0.49837], detector)
-    #osc.apply_to_detector([-1.69987, 3.003310, -1.1292170, 4.983754], detector)
-    #im.apply_to_detector([-0.19515, -1.9196440519], detector)
-    #tm.apply_to_detector(1222, detector)
+
     
     data = np.load(wf_file, encoding="latin1")
     wfs = data['wfs']
