@@ -25,7 +25,7 @@ def main(dir_name, num_samples=2000, sample_dec=1 ):
     num_joint_params = res.model.joint_models.num_params
 
     res.extract_model_values()
-    res.summarize_params(do_plots=True)
+    res.summarize_params(do_plots=False)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
