@@ -48,7 +48,14 @@ def main(wf, doPlot=False):
     osc = OscillationFilterModel(detector)
     im = ImpurityModelEnds(detector)
     #tm = TrappingModel()
-
+    vm.apply_to_detector([5.113175887585735880e+06, 4.931135374698639847e+06 6.582017554250035435e+06 5.973647864047872834e+06], detector)
+    hp.apply_to_detector([7.034677287318628805e+04 ], detector)
+    fs.apply_to_detector([-1.613713407466759397e+00, 8.961780932196099503e-01 -3.570576615818913169e+00 ], detector)
+    al.apply_to_detector([9.632021736944443857e-01, 1.092491237580749397e-01 ], detector)
+    oshoot.apply_to_detector([-5.132649715387167078e+00, 6.836889886576967834e-01 ], detector)
+    osc.apply_to_detector([-1.683230727845734354e+00, 3.003407309583828511e+00, -9.148622525552410067e-01, 5.120352824921794443e+00], detector)
+    im.apply_to_detector([-6.569293239164863962e-02, -2.749414433346664577e+00 ], detector)
+    '''
     #626
     vm.apply_to_detector([5060949, 4998461, 6540686, 5911641], detector)
     #hp.apply_to_detector([35040.50], detector)
@@ -58,7 +65,7 @@ def main(wf, doPlot=False):
     osc.apply_to_detector([-1.69987, 3.003310, -1.1292170, 4.983754], detector)
     im.apply_to_detector([-0.19515, -1.9196440519], detector)
     #tm.apply_to_detector(1222, detector)
-
+    '''
     data = np.load(wf_file, encoding="latin1")
     wfs = data['wfs']
 
