@@ -8,5 +8,5 @@
 #source .bash_rc
 echo $PWD
 cd Software/GeFT/GeFT
-python fit_waveform.py 3
+python fit_waveform.py 4
 
